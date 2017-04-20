@@ -1,0 +1,24 @@
+{
+  "name": "vue-router-zeroframe",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nocent/vue-router-zeroframe.git"
+  },
+  "keywords": [
+    "zeronet",
+    "vue-router",
+    "vuejs"
+  ],
+  "author": "nocent",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nocent/vue-router-zeroframe/issues"
+  },
+  "homepage": "https://github.com/nocent/vue-router-zeroframe#readme"
+}
