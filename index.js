@@ -57,7 +57,7 @@ export default function monkeyPatch(router, zeroframe) {
 
   router.history.ensureURL = (push) => {
     if (getLocation() !== location.current.fullPath) {
-      const current = cleanPath(window.location + this.current.fullPath)
+      const current = cleanPath(window.location + router.history.current.fullPath)
       push ? router.history.pushState(current) : router.history.replaceState(current)
     }
   }
