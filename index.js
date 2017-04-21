@@ -13,7 +13,6 @@ export default function monkeyPatch(router, zeroframe) {
 
   // Subscribe to history change events
   function listenToZeroFrame() {
-    let _route = zeroframe.route;
     zeroframe.route = function (cmd, msg) {
       if (cmd === "wrapperPopState") {
         // Create dummy element to provide search and hash attributes
@@ -21,7 +20,7 @@ export default function monkeyPatch(router, zeroframe) {
         a.href = msg.params.href
         router.history.transitionTo(getLocation(a), route => {/* TODO: handle scroll*/ })
       } else {
-        _route(cmd, msg);
+        Object.getPrototypeOf(zeroframe).route.call(zeroframe, cmd, msg)
       }
     }
   }
