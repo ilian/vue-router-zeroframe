@@ -4,7 +4,11 @@ export default function monkeyPatch(router, zeroframe) {
   // We only send the path after /? to vue-router. The set base path is ignored.
   function getLocation(loc = window.location) {
     // Ignore ? prefix that gets set by ZeroFrame's wrapperPushState
-    return (loc.search.slice(1) || '/') + loc.hash
+    return (loc.search.slice(1)
+       // Ignore wrapper and wrapper_nonce params set by ZeroFrame's iframe
+      .replace(/[&?]wrapper=False/, "")
+      .replace(/[&?]wrapper_nonce=[A-Za-z0-9]+/, "")
+      || '/') + loc.hash
   }
 
   // Subscribe to history change events
